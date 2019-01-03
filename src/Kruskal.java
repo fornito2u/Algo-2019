@@ -38,10 +38,11 @@ public class Kruskal implements Algo
         return arbre;
     }
 
+    /* Méthode utilisé dans la classe Main qui permet de tester l'affichage d'une utilisation de l'algorithme de Kruskal */
     public void affichageKruskal(ArrayList<Edge> arbreResultat)
     {
-        String s = "";
+        String resultat = "";
         for(Edge e : arbreResultat )s+=" "+e.from+"--"+e.to+" ";
-        System.out.println(s);
+        System.out.println(resultat);
     }
 }

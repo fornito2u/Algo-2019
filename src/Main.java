@@ -7,12 +7,14 @@ public class Main {
         Graph graph = Graph.example();
         Kruskal kruskal = new Kruskal();
 
-        ArrayList<Edge> resultat = kruskal.getArbreCouvrant(graph);
-        kruskal.affichageKruskal(resultat);
+        // Test pour 1 lancement de Kruskal
+        //ArrayList<Edge> resultat = kruskal.getArbreCouvrant(graph);
+        //kruskal.affichageKruskal(resultat);
 
-        //Statistique statistique = new Statistique();
-        //statistique.Lancement(kruskal, graph, 1000000);
-        //statistique.affichageResultat();
+        // Test pour 1000000 lancement de Kruskal
+        Statistique statistique = new Statistique();
+        statistique.Lancement(kruskal, graph, 1000000);
+        statistique.affiche();
 
     }
 }
