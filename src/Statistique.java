@@ -10,7 +10,7 @@ public class Statistique
     private Map<ArrayList<Edge>,Integer> arbreOcc;
 
     /** Constructeur **/
-    private Statistique()
+    public Statistique()
     {
         arbreProba=new HashMap<>();
         arbreOcc=new HashMap<>();
@@ -77,7 +77,7 @@ public class Statistique
 
             for(Edge areteArbre2 : arbre2)
             {
-                if(areteArbre1.egale(areteArbre2))
+                if(areteArbre1.compare(areteArbre2))
                 {
                     existe = true;
                     break;

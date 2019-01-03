@@ -144,5 +144,43 @@ class Graph{
 	catch (IOException e)
 	    {
 	    }                                             
-    }    
+    }
+
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////* Nouvelles Méthodes *///////////////////////////////////////////////////////
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	public ArrayList<Edge>[] getAdj()
+	{
+		return this.adj;
+	}
+
+	public void setCoordX(int[] coordX) {
+		this.coordX = coordX;
+	}
+
+	public void setCoordY(int[] coordY) {
+		this.coordY = coordY;
+	}
+
+	public Graph clone()
+	{
+		Graph grapheClone = new Graph(this.V);
+		int[] coordX = new int[this.V];
+		int[] coordY = new int[this.V];
+
+		for(int i=0; i<this.adj.length; i++)
+		{
+			for (Edge e :adj[i])
+			{
+				grapheClone.getAdj()[i].add(e.clone());
+			}
+			coordX[i]=this.coordX[i];
+			coordY[i]=this.coordY[i];
+		}
+
+		grapheClone.setCoordX(coordX);
+		grapheClone.setCoordY(coordY);
+		return grapheClone;
+	}
 }
