@@ -16,7 +16,8 @@ public class Kruskal
         }
 
         ArrayList<Edge> arbre =new ArrayList<>();
-        ArrayList<Edge> aretes=Collections.shuffle(graph.edges());
+        Collections.shuffle(graph.edges());
+        ArrayList<Edge> aretes=graph.edges();
         UnionFind ver =new UnionFind(graph.vertices());
 
         for(Edge arete:aretes)
