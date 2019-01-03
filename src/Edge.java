@@ -30,4 +30,9 @@ class Edge
         clone.used = this.used;
         return clone;
     }
+
+    public void setUsed(boolean used)
+    {
+        this.used = used;
+    }
 }
