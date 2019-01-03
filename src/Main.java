@@ -13,8 +13,6 @@ public class Main {
 
         // Test pour 1000000 lancement de Kruskal
         Statistique statistique = new Statistique();
-        statistique.Lancement(kruskal, graph, 1000000);
-        statistique.affiche();
-
+        statistique.Lancement(kruskal, graph, 1000000).affiche();
     }
 }

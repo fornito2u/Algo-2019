@@ -3,8 +3,13 @@ import java.util.Collections;
 
 public class Kruskal implements Algo
 {
+
+    String nom;
+
     public Kruskal()
-    {}
+    {
+        this.nom = "Kruskal";
+    }
 
     @Override
     public ArrayList<Edge> getArbreCouvrant(Graph graph)
@@ -36,6 +41,11 @@ public class Kruskal implements Algo
             }
         }
         return arbre;
+    }
+
+    public String getNom()
+    {
+        return this.nom;
     }
 
     /* Méthode utilisé dans la classe Main qui permet de tester l'affichage d'une utilisation de l'algorithme de Kruskal */

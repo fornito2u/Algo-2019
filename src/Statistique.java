@@ -5,7 +5,7 @@ import java.util.Map;
 public class Statistique
 {
     private int nbLancementAlgo;
-    private Algo algoLance;
+    private String nomAlgoLance;
     private Map<ArrayList<Edge>,Float> arbreProba;
     private Map<ArrayList<Edge>,Integer> arbreOcc;
 
@@ -22,7 +22,7 @@ public class Statistique
         if(algo == null || graph == null || nbFois <= 0) throw new IllegalArgumentException();
 
         Statistique statistique = new Statistique();
-        statistique.algoLance = algo;
+        statistique.nomAlgoLance = algo.getNom();
         statistique.nbLancementAlgo = nbFois;
 
         for (int i=0;i<statistique.nbLancementAlgo;i++)
@@ -94,7 +94,17 @@ public class Statistique
 
     public void affiche()
     {
-        System.out.println( "Lancement de l'algorihtme "+ algoLance + " " +nbLancementAlgo + " fois sur le graph donné");
+        String nomAlgo = "";
+        switch(nomAlgoLance)
+        {
+            case "Kruskal":
+                nomAlgo = "Kruskal";
+                break;
+            case "Aldous-Broder":
+                nomAlgo = "Aldous-Broder";
+                break;
+        }
+        System.out.println( "Lancement de l'algorihtme "+ nomAlgo + " " +nbLancementAlgo + " fois sur le graph donné");
         // ....
     }
 
