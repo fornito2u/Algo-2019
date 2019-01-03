@@ -3,12 +3,11 @@ public class Main {
     public static void main (String [] args ){
 
         Graph graph = Graph.example();
-        Kruskal kruskal = new Kruskal();
+        Kruskal kruskal = new Kruskal(graph);
+        Statistique statistique = new Statistique();
 
-        for(int i =0; i < 1000000; i++)
-        {
-            // Lancement de la simulation 1000000 de fois
-        }
+        statistique.Lancement(kruskal, graph, 1000000);
+        statistique.affichageResultat();
 
     }
 }

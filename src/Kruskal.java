@@ -1,33 +1,36 @@
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class Kruskal
+public class Kruskal implements Algo
 {
     public Kruskal()
     {}
 
     @Override
-    public ArrayList<Edge> getArbreCouvrante(Graph graph)
+    public ArrayList<Edge> getArbreCouvrant(Graph graph)
     {
-
         if(graph==null)
         {
             throw new IllegalArgumentException();
         }
 
-        ArrayList<Edge> arbre =new ArrayList<>();
-        Collections.shuffle(graph.edges());
-        ArrayList<Edge> aretes=graph.edges();
-        UnionFind ver =new UnionFind(graph.vertices());
+        // On créer l'arbre d
+        ArrayList<Edge> arbre = new ArrayList<>();
 
-        for(Edge arete:aretes)
+        // On mélange la liste des arretes du graph
+        Collections.shuffle(graph.edges());
+        ArrayList<Edge> listAretes = graph.edges();
+
+        UnionFind unionFind = new UnionFind(graph.vertices());
+
+        for(Edge arete:listAretes)
         {
             int sommet1=arete.from;
             int sommet2=arete.to;
 
-            if(ver.find(sommet1)!=ver.find(sommet2))
+            if(unionFind.find(sommet1) != unionFind.find(sommet2))
             {
-                ver.union(sommet1,sommet2);
+                unionFind.union(sommet1,sommet2);
                 arbre.add(arete);
                 arete.used=true;
             }
