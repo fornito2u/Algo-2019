@@ -14,6 +14,7 @@ public class AldousBroder implements Algo
 
     public AldousBroder()
     {
+        this.nom = "Aldous-Broder";
         arbreCouvrant = new ArrayList<>();
         nombreSommetsNonVisites = 0;
         random = new Random();
@@ -22,7 +23,6 @@ public class AldousBroder implements Algo
     @Override
     public ArrayList<Edge> getArbreCouvrant(Graph graph)
     {
-        this.nom = "Aldous-Broder";
         init(graph.vertices());
         while(nombreSommetsNonVisites > 0)
         {

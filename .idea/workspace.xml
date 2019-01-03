@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a151e3b6-391b-4aad-a102-96dae1f9f50b" name="Default Changelist" comment="Question 5 presque terminé, bug d'affichage à regler">
+    <list default="true" id="a151e3b6-391b-4aad-a102-96dae1f9f50b" name="Default Changelist" comment="Question 5 debug">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Annexe/Sujet.pdf" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Annexe/Rapport.pdf" afterPath="$PROJECT_DIR$/Annexe/Rapport.pdf" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AldousBroder.java" afterPath="$PROJECT_DIR$/src/AldousBroder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -65,8 +66,8 @@
       <file leaf-file-name="AldousBroder.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/AldousBroder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="24" column="27" lean-forward="false" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
+            <state relative-caret-position="208">
+              <caret line="19" column="6" lean-forward="true" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1698#1699#0" expanded="true" />
@@ -79,8 +80,8 @@
       <file leaf-file-name="Statistique.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Statistique.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="134">
-              <caret line="97" column="0" lean-forward="false" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
+            <state relative-caret-position="1762">
+              <caret line="104" column="22" lean-forward="true" selection-start-line="104" selection-start-column="22" selection-end-line="104" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -133,9 +134,9 @@
         <option value="$PROJECT_DIR$/src/Kruskal.java" />
         <option value="$PROJECT_DIR$/src/Algo.java" />
         <option value="$PROJECT_DIR$/src/Edge.java" />
-        <option value="$PROJECT_DIR$/src/AldousBroder.java" />
         <option value="$PROJECT_DIR$/src/Statistique.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
+        <option value="$PROJECT_DIR$/src/AldousBroder.java" />
       </list>
     </option>
   </component>
@@ -169,6 +170,11 @@
             <path>
               <item name="Algo-2019" type="b2602c69:ProjectViewProjectNode" />
               <item name="Algo-2019" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Algo-2019" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Algo-2019" type="462c0819:PsiDirectoryNode" />
+              <item name="Annexe" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Algo-2019" type="b2602c69:ProjectViewProjectNode" />
@@ -308,7 +314,14 @@
       <option name="project" value="LOCAL" />
       <updated>1546530862940</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Question 5 debug">
+      <created>1546531257090</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1546531257090</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -401,7 +414,8 @@
     <MESSAGE value="Question 3 terminé" />
     <MESSAGE value="Question 3 terminé (faute d'orthographe corrigée)" />
     <MESSAGE value="Question 5 presque terminé, bug d'affichage à regler" />
-    <option name="LAST_COMMIT_MESSAGE" value="Question 5 presque terminé, bug d'affichage à regler" />
+    <MESSAGE value="Question 5 debug" />
+    <option name="LAST_COMMIT_MESSAGE" value="Question 5 debug" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -681,8 +695,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Statistique.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="134">
-          <caret line="97" column="0" lean-forward="false" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
+        <state relative-caret-position="1762">
+          <caret line="104" column="22" lean-forward="true" selection-start-line="104" selection-start-column="22" selection-end-line="104" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -691,8 +705,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/AldousBroder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="24" column="27" lean-forward="false" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
+        <state relative-caret-position="208">
+          <caret line="19" column="6" lean-forward="true" selection-start-line="19" selection-start-column="6" selection-end-line="19" selection-end-column="6" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1698#1699#0" expanded="true" />
