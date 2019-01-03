@@ -22,9 +22,9 @@ public class Kruskal implements Algo
         // On créer l'arbre d
         ArrayList<Edge> arbre = new ArrayList<>();
 
-        // On mélange la liste des arretes du graph
-        Collections.shuffle(graph.edges());
         ArrayList<Edge> listAretes = graph.edges();
+        // On mélange la liste des arretes du graph
+        Collections.shuffle(listAretes);
 
         UnionFind unionFind = new UnionFind(graph.vertices());
 
