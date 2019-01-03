@@ -104,8 +104,29 @@ public class Statistique
                 nomAlgo = "Aldous-Broder";
                 break;
         }
-        System.out.println( "Lancement de l'algorihtme "+ nomAlgo + " " +nbLancementAlgo + " fois sur le graph donné");
-        // ....
+
+        System.out.println( "Lancement de l'algorihtme "+ nomAlgo + " " +nbLancementAlgo + " de fois sur le graph donné\n");
+        String[] tab={"  Numéro  ","          Arbre          ","   Nombre D'Occurences   ","  Probabilité  "};
+
+        for (String s : tab)
+        {
+            System.out.print(s);
+        }
+
+        System.out.println("\n");
+        int compteurArbreCouvrant=0;
+
+        for(Map.Entry<ArrayList<Edge>, Integer> prototype : arbreOcc.entrySet())
+        {
+            ArrayList<Edge> arbreProto = prototype.getKey();
+            int nbOccurence= prototype.getValue();
+            float probabilite = arbreProba.get(arbreProto);
+            ++compteurArbreCouvrant;
+            String affichageArreteArbre = getAffichageAretesArbre(arbreProto);
+            System.out.print("    "+compteurArbreCouvrant+"  ");
+            System.out.print("       "+affichageArreteArbre);
+            System.out.println("           "+nbOccurence+"              "+probabilite);
+        }
     }
 
     public String getAffichageAretesArbre(ArrayList<Edge> arbre)
