@@ -14,7 +14,7 @@ public class Statistique
     }
 
     public static Statistique Lancement(Algo algo, Graph graph, int nbFois){
-        if(algo == null || graph == null || nbFois == null) throw new IllegalArgumentException();
+        if(algo == null || graph == null || nbFois <= 0) throw new IllegalArgumentException();
 
         Statistique statistique = new Statistique();
 

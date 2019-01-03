@@ -37,4 +37,11 @@ public class Kruskal implements Algo
         }
         return arbre;
     }
+
+    public void affichageKruskal(ArrayList<Edge> arbreResultat)
+    {
+        String s = "";
+        for(Edge e : arbreResultat )s+=" "+e.from+"--"+e.to+" ";
+        System.out.println(s);
+    }
 }
