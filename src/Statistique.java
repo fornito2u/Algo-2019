@@ -105,7 +105,7 @@ public class Statistique
                 break;
         }
 
-        System.out.println( "Lancement de l'algorihtme "+ nomAlgo + " " +nbLancementAlgo + " de fois sur le graph donné\n");
+        System.out.println( "Lancement de l'algorithme "+ nomAlgo + " " +nbLancementAlgo + " de fois sur le graph donné\n");
         String[] tab={"  Numéro  ","          Arbre          ","   Nombre D'Occurences   ","  Probabilité  "};
 
         for (String s : tab)
