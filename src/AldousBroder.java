@@ -23,19 +23,10 @@ public class AldousBroder implements Algo
     @Override
     public ArrayList<Edge> getArbreCouvrant(Graph graph)
     {
-        init(graph.vertices());
-        while(nombreSommetsNonVisites > 0)
-        {
-            prochainSommet(graph);
-        }
-        return arbreCouvrant;
-    }
-
-    private void init(int entier)
-    {
-        arbreCouvrant = new ArrayList<>();
-        nombreSommetsNonVisites = entier;
-        sommetsDejaVisites = new boolean[entier];
+        int entier = graph.vertices();
+        this.nombreSommetsNonVisites = entier;
+        this.sommetsDejaVisites = new boolean[entier];
+        this.arbreCouvrant = new ArrayList<>();
 
         for(int i=0; i<entier;i++)
         {
@@ -45,6 +36,13 @@ public class AldousBroder implements Algo
         sommetActuel = random.nextInt(entier);
         sommetsDejaVisites[sommetActuel] = true;
         nombreSommetsNonVisites--;
+
+
+        while(nombreSommetsNonVisites > 0)
+        {
+            prochainSommet(graph);
+        }
+        return arbreCouvrant;
     }
 
     private void prochainSommet(Graph graph)
