@@ -18,5 +18,6 @@ public class Main {
 
         // Test pour 1000000 lancement de AldousBroder
         statistique.Lancement(aldousBroder, graph, 1000000).affiche();
+
     }
 }
