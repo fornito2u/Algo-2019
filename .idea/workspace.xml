@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a151e3b6-391b-4aad-a102-96dae1f9f50b" name="Default Changelist" comment="Debug iml">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Wilson.java" />
+    <list default="true" id="a151e3b6-391b-4aad-a102-96dae1f9f50b" name="Default Changelist" comment="Question 6 effectué/terminé">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/AldousBroder.java" afterPath="$PROJECT_DIR$/src/AldousBroder.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="$PROJECT_DIR$/src/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Statistique.java" afterPath="$PROJECT_DIR$/src/Statistique.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -58,8 +55,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
-              <caret line="16" column="36" lean-forward="false" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
+            <state relative-caret-position="51">
+              <caret line="3" column="1" lean-forward="false" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -156,11 +153,6 @@
             <path>
               <item name="Algo-2019" type="b2602c69:ProjectViewProjectNode" />
               <item name="Algo-2019" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Algo-2019" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Algo-2019" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -314,7 +306,14 @@
       <option name="project" value="LOCAL" />
       <updated>1546593630811</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Question 6 effectué/terminé">
+      <created>1546597855418</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1546597855418</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -394,7 +393,8 @@
     <MESSAGE value="Question 5 debug" />
     <MESSAGE value="Fin de la question 5." />
     <MESSAGE value="Debug iml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Debug iml" />
+    <MESSAGE value="Question 6 effectué/terminé" />
+    <option name="LAST_COMMIT_MESSAGE" value="Question 6 effectué/terminé" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -792,8 +792,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="16" column="36" lean-forward="false" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
+        <state relative-caret-position="51">
+          <caret line="3" column="1" lean-forward="false" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
           <folding />
         </state>
       </provider>
