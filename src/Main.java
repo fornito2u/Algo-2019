@@ -17,7 +17,8 @@ public class Main {
         //statistique.Lancement(kruskal, graph, 1000000).affiche();
 
         // Test pour 1000000 lancement de AldousBroder
-        statistique.Lancement(aldousBroder, graph, 1000000).affiche();
+        //statistique.Lancement(aldousBroder, graph, 1000000).affiche();
 
+        Labyrinthe l=new Labyrinthe(20, aldousBroder);
     }
 }
