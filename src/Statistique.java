@@ -103,6 +103,9 @@ public class Statistique
             case "Aldous-Broder":
                 nomAlgo = "Aldous-Broder";
                 break;
+            case "Wilson":
+                nomAlgo = "Wilson";
+                break;
         }
 
         System.out.println( "Lancement de l'algorithme "+ nomAlgo + " " +nbLancementAlgo + " de fois sur le graph donné\n");
