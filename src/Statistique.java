@@ -77,7 +77,7 @@ public class Statistique
 
             for(Edge areteArbre2 : arbre2)
             {
-                if(areteArbre1.compare(areteArbre2))
+                if(areteArbre1.equals(areteArbre2))
                 {
                     existe = true;
                     break;

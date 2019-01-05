@@ -173,7 +173,7 @@ class Graph{
 		{
 			for (Edge e :adj[i])
 			{
-				grapheClone.getAdj()[i].add(e.clone());
+				grapheClone.getAdj()[i].add(new Edge(e));
 			}
 			coordX[i]=this.coordX[i];
 			coordY[i]=this.coordY[i];

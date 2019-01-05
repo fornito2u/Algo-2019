@@ -9,6 +9,13 @@ class Edge
 	this.to = y;
 	this.used = false;
     }
+
+    //Rajout d'un constructeur de copies
+    Edge(Edge e) {
+        this.from=e.from;
+        this.to=e.to;
+        this.used=e.used;
+    }
     
     final int other(int v)
     {
@@ -19,17 +26,14 @@ class Edge
     /////////////////////////////////////////////////////* Nouvelles Méthodes *///////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-    public boolean compare(Edge edge)
-    {
-        return ((edge.from == this.from && edge.to == this.to) || (edge.from == this.to && edge.to == this.from));
-    }
-
-    protected Edge clone()
-    {
-        Edge clone = new Edge(this.from, this.to);
-        clone.used = this.used;
-        return clone;
+    @Override
+    public boolean equals(Object obj) {
+        if (obj != null && obj instanceof Edge) {
+            Edge edge=(Edge)obj;
+            return ((edge.from == this.from && edge.to == this.to) || (edge.from == this.to && edge.to == this.from));
+        } else {
+            return false;
+        }
     }
 
     public void setUsed(boolean used)
