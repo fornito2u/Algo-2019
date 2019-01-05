@@ -10,13 +10,18 @@ public class Labyrinthe {
     //L'algorithme utilisé pour générer l'arbre couvrant
     private Algo algo;
 
+    private Graph graph;
+
     //Un tableau de cases représentant le labyrinthe
     private CaseLabyrinthe[][] labyrinthe;
+
+    //L'arbre couvrant du graphe
+    private ArrayList<Edge> arbreCouvrant;
 
     public Labyrinthe(int taille, Algo algo) {
         this.taille=taille;
         this.algo=algo;
-        Graph graph=new Graph(taille*taille);
+        this.graph=new Graph(taille*taille);
         //On va créé un graphe de sorte à ce que le sommet 0 soit en haut à gauche et le sommet taille * taille -1 en bas à droite
         Edge e;
         //Par exemple pour taille = 3
@@ -30,23 +35,23 @@ public class Labyrinthe {
             for (int j=0;j<taille;j++) {
                 if (j < taille-1) {
                     e=new Edge(i+j,i+j+1);
-                    graph.addEdge(e);
+                    this.graph.addEdge(e);
                 }
                 e=new Edge(i+j,i+j+taille);
-                graph.addEdge(e);
+                this.graph.addEdge(e);
             }
         }
 
         for (int i=0;i<taille-1;i++) {
             if (i < taille-1) {
                 e=new Edge(i+taille*(taille-1),i+taille*(taille-1)+1);
-                graph.addEdge(e);
+                this.graph.addEdge(e);
             }
         }
-        ArrayList<Edge> arbreCouvrant=algo.getArbreCouvrant(graph);
+        this.arbreCouvrant=algo.getArbreCouvrant(this.graph);
 
         initialiserLabyrinthe();
-        for (Edge edge : arbreCouvrant) {
+        for (Edge edge : this.arbreCouvrant) {
             enleverArreteDansLabyrinthe(edge);
         }
         writeFile("test.svg",30);
@@ -93,6 +98,44 @@ public class Labyrinthe {
             labyrinthe[iHaut][jHaut].setBas(false);
             labyrinthe[iHaut][jHaut+1].setHaut(false);
         }
+    }
+
+    public int nbCulDeSac() {
+        int[] nbArretePourSommet=new int[this.graph.vertices()];
+
+        //On initilasise à 0
+        for (int i=0;i<nbArretePourSommet.length;i++) {
+            nbArretePourSommet[i]=0;
+        }
+
+        //On ajoute une arrete pour l'entree et la sortie
+        nbArretePourSommet[taille-1]=1;
+        nbArretePourSommet[(taille-1)*taille]=1;
+
+        //On compte le nombre d'arrete pour chaque sommet
+        for (Edge e : this.arbreCouvrant) {
+            nbArretePourSommet[e.to]++;
+            nbArretePourSommet[e.from]++;
+        }
+
+        int nbCulDeSac=0;
+        for (int i=0;i<nbArretePourSommet.length;i++) {
+            if (nbArretePourSommet[i]==1) {
+                nbCulDeSac++;
+                //System.out.println("Cul de sac, sommet "+i);
+            }
+        }
+        return nbCulDeSac;
+    }
+
+    public static double nbMoyenCulSac(Algo algo, int repetion) {
+        double nbCulDeSacTotal=0;
+        for (int i=0;i<repetion;i++) {
+            Labyrinthe l=new Labyrinthe(5, algo);
+            nbCulDeSacTotal+=l.nbCulDeSac();
+            //l.writeFile("test"+i+".svg",30);
+        }
+        return (nbCulDeSacTotal/repetion);
     }
 
     public void writeFile(String s, int tailleCase) {

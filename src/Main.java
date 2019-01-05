@@ -23,6 +23,7 @@ public class Main
         // Test pour 1000000 lancement de Wilson
         //statistique.Lancement(wilson, graph, 1000000).affiche();
 
-        Labyrinthe l=new Labyrinthe(20, aldousBroder);
+        //Labyrinthe l=new Labyrinthe(20, aldousBroder);
+        System.out.println(Labyrinthe.nbMoyenCulSac(kruskal,2));
     }
 }
