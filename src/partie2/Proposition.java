@@ -53,7 +53,7 @@ public class Proposition
         boolean b = true;
         int c = 0;
 
-        while(c <= 10000000)
+        while(c <= 100000)
         {
             while(b == true)
             {

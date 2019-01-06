@@ -21,7 +21,6 @@ public class Kruskal implements Algo
             throw new IllegalArgumentException();
         }
 
-        // On créer l'arbre d
         ArrayList<Edge> arbre = new ArrayList<>();
 
         ArrayList<Edge> listAretes = graph.edges();

@@ -1,7 +1,10 @@
 package main;
 
 import partie1.*;
+import partie2.Proposition;
+import partie2.Solution;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -9,8 +12,9 @@ public class Main
 {
     public static void main (String [] args )
     {
-        petitTest();
-        /*Graph graph = Graph.example();
+        //petitTest();
+
+        Graph graph = Graph.example();
         Statistique statistique = new Statistique();
         Kruskal kruskal = new Kruskal();
         AldousBroder aldousBroder = new AldousBroder();
@@ -22,7 +26,8 @@ public class Main
                 "    - Aldous-Brother : Entrer le numéro 2 \n " +
                 "    - Wilson : Entrer le numéro 3 \n" + "\n" +
                 "* Pour lancer la création d'un labyrinthe : Entrer le numéro 4 \n" + "\n" +
-                "* Pour quitter : Entrer le numéro 5");
+                "* Pour lancer la déduction des combinaisons secrètes : Entrer le numéro 5" +
+                "* Pour quitter : Entrer le numéro 6");
         boolean b = false;
         boolean quit = false;
         int entier = -1;
@@ -76,11 +81,18 @@ public class Main
                     System.out.println(Labyrinthe.statsPourAlgo(kruskal,2));
                     System.out.println("Labyrinthe crée dans fichier test.svg");
                     break;
-                case 5:
+                case 5 :
+                    System.out.println("Entrer les nombre de position du jeu");
+                    int n = sc.nextInt();
+                    System.out.println("Entrer les nombre de couleur du jeu");
+                    int g = sc.nextInt();
+                    secondTest(n, g);
+                    break;
+                case 6:
                     quit = true;
                     break;
             }
-        }*/
+        }
 
     }
 
@@ -100,5 +112,24 @@ public class Main
             System.out.println();
         }
         System.out.println("Distance : "+l.calculerDistance(4,0));*/
+    }
+
+    public static void secondTest(int n, int g)
+    {
+        ArrayList<Integer> listEntier1 = new ArrayList<>();
+        ArrayList<Integer> listEntier2 = new ArrayList<>();
+        int nbPosition = n;
+        int nbCouleur = g;
+        for(int i = 1; i <= nbPosition; i++)
+        {
+            listEntier1.add(i);
+        }
+        listEntier2.add(1);
+        listEntier2.add(2);
+        listEntier2.add(4);
+        listEntier2.add(3);
+        Solution s = new Solution(listEntier1, nbCouleur);
+        Proposition p = new Proposition(listEntier2, s);
+        System.out.println(p.getNbCombinaisonsPossibles());
     }
 }
