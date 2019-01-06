@@ -2,15 +2,13 @@ package main;
 
 import partie1.*;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main
 {
     public static void main (String [] args )
     {
-        petitTest();
-        /*Graph graph = Graph.example();
+        Graph graph = Graph.example();
         Statistique statistique = new Statistique();
         Kruskal kruskal = new Kruskal();
         AldousBroder aldousBroder = new AldousBroder();
@@ -22,7 +20,8 @@ public class Main
                 "    - Aldous-Brother : Entrer le numéro 2 \n " +
                 "    - Wilson : Entrer le numéro 3 \n" + "\n" +
                 "* Pour lancer la création d'un labyrinthe : Entrer le numéro 4 \n" + "\n" +
-                "* Pour quitter : Entrer le numéro 5");
+                "* Pour lancer la comparaison des distances et des culs de sac : Entrer le numéro 5 \n" + "\n" +
+                "* Pour quitter : Entrer le numéro 6");
         boolean b = false;
         boolean quit = false;
         int entier = -1;
@@ -30,7 +29,7 @@ public class Main
         while (quit == false)
         {
             entier = sc.nextInt();
-            if(entier == 1 || entier == 2 || entier == 3 || entier == 4 || entier == 5)
+            if(entier >= 1 && entier <= 6)
             {
                 b = true;
                 if(entier == 5)
@@ -56,49 +55,41 @@ public class Main
             {
                 case 1:
                     // Lancement pour 1000000 Kruskal
-                    System.out.println("Lancement en cour... \n");
+                    System.out.println("Lancement en cours... \n");
                     statistique.Lancement(kruskal, graph, 1000000).affiche();
                     break;
                 case 2:
                     // Lancement pour 1000000 d'AldousBroder
-                    System.out.println("Lancement en cour... \n");
+                    System.out.println("Lancement en cours... \n");
                     statistique.Lancement(aldousBroder, graph, 1000000).affiche();
                     break;
                 case 3:
                     // Lancement pour 1000000 de Wilson
-                    System.out.println("Lancement en cour... \n");
+                    System.out.println("Lancement en cours... \n");
                     statistique.Lancement(wilson, graph, 1000000).affiche();
                     break;
                 case 4:
                     // Création du labyrinthe
                     Labyrinthe l = new Labyrinthe(20, aldousBroder);
-                    System.out.println("Lancement en cour... \n");
-                    System.out.println(Labyrinthe.statsPourAlgo(kruskal,2));
+                    System.out.println("Lancement en cours... \n");
                     System.out.println("Labyrinthe crée dans fichier test.svg");
                     break;
                 case 5:
+                    comparaisonAlgo();
+                    break;
+                case 6:
                     quit = true;
                     break;
             }
-        }*/
+        }
 
     }
 
-    public static void petitTest() {
+    public static void comparaisonAlgo() {
         AldousBroder aldousBroder = new AldousBroder();
         Kruskal kruskal = new Kruskal();
 
         Labyrinthe.statsPourAlgo(aldousBroder,20,1000);
         Labyrinthe.statsPourAlgo(kruskal,20,1000);
-        /*Labyrinthe l = new Labyrinthe(5, aldousBroder);
-        ArrayList<Integer>[] sommetsSuivant=l.calculSommetsSucesseurs();
-        for (int i=0;i<sommetsSuivant.length;i++) {
-            System.out.print("S"+i+" ");
-            for (int j=0;j<sommetsSuivant[i].size();j++) {
-                System.out.print("S"+sommetsSuivant[i].get(j)+" ");
-            }
-            System.out.println();
-        }
-        System.out.println("Distance : "+l.calculerDistance(4,0));*/
     }
 }
