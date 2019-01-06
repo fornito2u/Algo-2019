@@ -1,3 +1,5 @@
+package partie1;
+
 public class CaseLabyrinthe {
 
     private boolean haut;

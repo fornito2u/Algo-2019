@@ -1,3 +1,5 @@
+package partie1;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -48,7 +50,7 @@ public class Kruskal implements Algo
         return this.nom;
     }
 
-    /* Méthode utilisé dans la classe Main qui permet de tester l'affichage d'une utilisation de l'algorithme de Kruskal */
+    /* Méthode utilisé dans la classe main.Main qui permet de tester l'affichage d'une utilisation de l'algorithme de partie1.Kruskal */
     public void affichageKruskal(ArrayList<Edge> arbreResultat)
     {
         String resultat = "";

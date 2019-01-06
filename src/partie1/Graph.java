@@ -1,10 +1,11 @@
+package partie1;
+
 import java.util.ArrayList;
 import java.io.*;
-import javax.swing.*;
 import java.awt.*;
 import java.awt.image.*;
 
-class Graph{
+public class Graph{
    private ArrayList<Edge>[] adj;
    private int[] coordX;
    private int[] coordY;
@@ -63,7 +64,7 @@ class Graph{
         return list;
     }
 
-    static Graph example(){
+    public static Graph example(){
 	Graph g = new Graph(4);
 	g.setCoordinate(0, 100,100);
 	g.setCoordinate(1, 300,300);

@@ -1,4 +1,6 @@
-class Edge
+package partie1;
+
+public class Edge
 {
    int from;
    int to;

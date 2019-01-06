@@ -1,4 +1,6 @@
-//package graphe;
+package partie1;//package graphe;
+
+
 import java.io.*;
 
 
