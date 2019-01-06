@@ -1,7 +1,10 @@
 package main;
 
 import partie1.*;
-
+import partie2.Proposition;
+import partie2.Solution;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main
@@ -21,7 +24,9 @@ public class Main
                 "    - Wilson : Entrer le numéro 3 \n" + "\n" +
                 "* Pour lancer la création d'un labyrinthe : Entrer le numéro 4 \n" + "\n" +
                 "* Pour lancer la comparaison des distances et des culs de sac : Entrer le numéro 5 \n" + "\n" +
-                "* Pour quitter : Entrer le numéro 6");
+                "* Pour lancer la déduction des combinaisons secrètes : Entrer le numéro 6" +
+                "* Pour quitter : Entrer le numéro 7");
+
         boolean b = false;
         boolean quit = false;
         int entier = -1;
@@ -29,7 +34,7 @@ public class Main
         while (quit == false)
         {
             entier = sc.nextInt();
-            if(entier >= 1 && entier <= 6)
+            if(entier >= 1 && entier <= 7)
             {
                 b = true;
                 if(entier == 5)
@@ -76,8 +81,14 @@ public class Main
                     break;
                 case 5:
                     comparaisonAlgo();
-                    break;
                 case 6:
+                    System.out.println("Entrer les nombre de position du jeu");
+                    int n = sc.nextInt();
+                    System.out.println("Entrer les nombre de couleur du jeu");
+                    int g = sc.nextInt();
+                    secondTest(n, g);
+                    break;
+                case 7:
                     quit = true;
                     break;
             }
@@ -91,5 +102,24 @@ public class Main
 
         Labyrinthe.statsPourAlgo(aldousBroder,20,1000);
         Labyrinthe.statsPourAlgo(kruskal,20,1000);
+    }
+
+    public static void secondTest(int n, int g)
+    {
+        ArrayList<Integer> listEntier1 = new ArrayList<>();
+        ArrayList<Integer> listEntier2 = new ArrayList<>();
+        int nbPosition = n;
+        int nbCouleur = g;
+        for(int i = 1; i <= nbPosition; i++)
+        {
+            listEntier1.add(i);
+        }
+        listEntier2.add(1);
+        listEntier2.add(2);
+        listEntier2.add(4);
+        listEntier2.add(3);
+        Solution s = new Solution(listEntier1, nbCouleur);
+        Proposition p = new Proposition(listEntier2, s);
+        System.out.println(p.getNbCombinaisonsPossibles());
     }
 }
