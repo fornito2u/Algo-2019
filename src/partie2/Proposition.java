@@ -1,15 +1,16 @@
 package partie2;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Proposition
 {
-    private ArrayList<String> proposition;
-    private ArrayList<String> solution;
+    private ArrayList<Integer> proposition;
+    private Solution solution;
     private Reponse reponse;
     private int nbCombinaisonsPossibles;
 
-    public Proposition(ArrayList<String> proposition, ArrayList<String> solution)
+    public Proposition(ArrayList<Integer> proposition, Solution solution)
     {
         this.proposition = proposition;
         this.solution = solution;
@@ -22,13 +23,13 @@ public class Proposition
     {
         for(int i = 0; i < this.proposition.size(); i++)
         {
-            if(this.proposition.get(i) == this.solution.get(i))
+            if(this.proposition.get(i) == this.solution.getSolution().get(i))
             {
                 this.reponse.setB(this.getReponse().getB() + 1);
             }
             else
             {
-                for (String s : this.solution)
+                for (int s : this.solution.getSolution())
                 {
                     if(this.proposition.get(i) == s)
                     {
@@ -41,18 +42,48 @@ public class Proposition
 
     public int evaluerNombreCombinaisonsPossibles()
     {
-        int compteurPossibiltie = 0;
+        int compteurPossibilite = 0;
+        int nbPosition = this.solution.getN();
+        int nbCouleurs = this.solution.getK();
 
+        ArrayList<ArrayList<Integer>> listTablAlea = new ArrayList<>();
+        ArrayList<Integer> tabAlea = new ArrayList<>();
+        Random rand = new Random();
+        int alea;
+        boolean b = true;
+        int c = 0;
 
-        return compteurPossibiltie;
+        while(c <= 10000000)
+        {
+            while(b == true)
+            {
+                alea = rand.nextInt(nbCouleurs + 1);
+                if(tabAlea.contains(alea) == false)
+                {
+                    tabAlea.add(alea);
+                }
+                if(tabAlea.size() == nbPosition)
+                {
+                    b = false;
+                }
+            }
+            if(listTablAlea.contains(tabAlea) == false)
+            {
+                listTablAlea.add(tabAlea);
+            }
+            b = true;
+            c++;
+        }
+        compteurPossibilite = listTablAlea.size();
+        return compteurPossibilite;
     }
 
-    public ArrayList<String> getProposition()
+    public ArrayList<Integer> getProposition()
     {
         return proposition;
     }
 
-    public ArrayList<String> getSolution()
+    public Solution getSolution()
     {
         return solution;
     }
