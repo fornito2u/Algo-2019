@@ -24,7 +24,7 @@ public class Main
                 "    - Wilson : Entrer le numéro 3 \n" + "\n" +
                 "* Pour lancer la création d'un labyrinthe : Entrer le numéro 4 \n" + "\n" +
                 "* Pour lancer la comparaison des distances et des culs de sac : Entrer le numéro 5 \n" + "\n" +
-                "* Pour lancer la déduction des combinaisons secrètes : Entrer le numéro 6" +
+                "* Pour lancer la déduction des combinaisons secrètes : Entrer le numéro 6 \n" + "\n" +
                 "* Pour quitter : Entrer le numéro 7");
 
         boolean b = false;
@@ -44,9 +44,9 @@ public class Main
             }
             while(b == false)
             {
-                System.out.println("Mauvaise entrée, veuillez utiliser les chiffres 1, 2, 3, 4 ou 5 pour selectionner l'action");
+                System.out.println("Mauvaise entrée, veuillez utiliser les chiffres entre 1 et 7 pour selectionner l'action");
                 entier = sc.nextInt();
-                if(entier == 1 || entier == 2 || entier == 3 || entier == 4 || entier == 5)
+                if(entier >= 1 && entier<=7)
                 {
                     b = true;
                     if(entier == 5)
@@ -81,6 +81,7 @@ public class Main
                     break;
                 case 5:
                     comparaisonAlgo();
+                    break;
                 case 6:
                     System.out.println("Entrer les nombre de position du jeu");
                     int n = sc.nextInt();
@@ -91,6 +92,10 @@ public class Main
                 case 7:
                     quit = true;
                     break;
+            }
+            if(entier != 7)
+            {
+                System.out.println("Quel sera votre prochaine activité ? (Veuillez entrer un chiffre entier entre 1 et 7)");
             }
         }
 
@@ -106,20 +111,23 @@ public class Main
 
     public static void secondTest(int n, int g)
     {
+        Scanner sc = new Scanner(System.in);
         ArrayList<Integer> listEntier1 = new ArrayList<>();
         ArrayList<Integer> listEntier2 = new ArrayList<>();
         int nbPosition = n;
         int nbCouleur = g;
         for(int i = 1; i <= nbPosition; i++)
         {
-            listEntier1.add(i);
+            System.out.println("Création de la solution : Entrer le numéro de la couleur "+ i + "\n");
+            listEntier1.add(sc.nextInt());
         }
-        listEntier2.add(1);
-        listEntier2.add(2);
-        listEntier2.add(4);
-        listEntier2.add(3);
+        for(int i = 1; i <= nbPosition; i++)
+        {
+            System.out.println("Création de la proposition : Entrer le numéro de la couleur "+ i + "\n");
+            listEntier2.add(sc.nextInt());
+        }
         Solution s = new Solution(listEntier1, nbCouleur);
         Proposition p = new Proposition(listEntier2, s);
-        System.out.println(p.getNbCombinaisonsPossibles());
+        System.out.println("Nombre de combinaisons possibles : " + p.getNbCombinaisonsPossibles());
     }
 }

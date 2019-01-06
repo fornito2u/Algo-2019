@@ -1,5 +1,6 @@
 package partie2;
 
+
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -15,29 +16,34 @@ public class Proposition
         this.proposition = proposition;
         this.solution = solution;
         this.reponse = new Reponse();
-        evaluerReponse();
+        evaluerReponse(this.proposition);
         this.nbCombinaisonsPossibles = evaluerNombreCombinaisonsPossibles();
     }
 
-    public void evaluerReponse()
+    public void evaluerReponse(ArrayList<Integer> p) throws IndexOutOfBoundsException
     {
-        for(int i = 0; i < this.proposition.size(); i++)
+        for(int i = 0; i < p.size(); i++)
         {
-            if(this.proposition.get(i) == this.solution.getSolution().get(i))
+            if(i>=0 && i < this.solution.getSolution().size())
             {
-                this.reponse.setB(this.getReponse().getB() + 1);
-            }
-            else
-            {
-                for (int s : this.solution.getSolution())
+                if(p.get(i) == this.solution.getSolution().get(i))
                 {
-                    if(this.proposition.get(i) == s)
+                    this.reponse.setB(this.getReponse().getB() + 1);
+                }
+                else
+                {
+                    for (int s : this.solution.getSolution())
                     {
-                        this.reponse.setM(this.getReponse().getM() + 1);
+                        if(p.get(i) == s)
+                        {
+                            this.reponse.setM(this.getReponse().getM() + 1);
+                        }
                     }
                 }
             }
+
         }
+
     }
 
     public int evaluerNombreCombinaisonsPossibles()
@@ -62,7 +68,7 @@ public class Proposition
                 {
                     tabAlea.add(alea);
                 }
-                if(tabAlea.size() == nbPosition)
+                if(tabAlea.size()+1 == nbPosition)
                 {
                     b = false;
                 }
@@ -71,6 +77,7 @@ public class Proposition
             {
                 listTablAlea.add(tabAlea);
             }
+            tabAlea = new ArrayList<>();
             b = true;
             c++;
         }
