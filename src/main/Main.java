@@ -2,13 +2,15 @@ package main;
 
 import partie1.*;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main
 {
     public static void main (String [] args )
     {
-        Graph graph = Graph.example();
+        petitTest();
+        /*Graph graph = Graph.example();
         Statistique statistique = new Statistique();
         Kruskal kruskal = new Kruskal();
         AldousBroder aldousBroder = new AldousBroder();
@@ -16,11 +18,11 @@ public class Main
 
         Scanner sc = new Scanner(System.in);
         System.out.println("* Pour quel algorithme voulez-vous lancer l'étude de statistique ? \n " +
-                           "    - Krusal : Entrer le numéro 1 \n " +
-                           "    - Aldous-Brother : Entrer le numéro 2 \n " +
-                           "    - Wilson : Entrer le numéro 3 \n" + "\n" +
-                           "* Pour lancer la création d'un labyrinthe : Entrer le numéro 4 \n" + "\n" +
-                           "* Pour quitter : Entrer le numéro 5");
+                "    - Krusal : Entrer le numéro 1 \n " +
+                "    - Aldous-Brother : Entrer le numéro 2 \n " +
+                "    - Wilson : Entrer le numéro 3 \n" + "\n" +
+                "* Pour lancer la création d'un labyrinthe : Entrer le numéro 4 \n" + "\n" +
+                "* Pour quitter : Entrer le numéro 5");
         boolean b = false;
         boolean quit = false;
         int entier = -1;
@@ -71,14 +73,32 @@ public class Main
                     // Création du labyrinthe
                     Labyrinthe l = new Labyrinthe(20, aldousBroder);
                     System.out.println("Lancement en cour... \n");
-                    System.out.println(Labyrinthe.nbMoyenCulSac(kruskal,2));
+                    System.out.println(Labyrinthe.statsPourAlgo(kruskal,2));
                     System.out.println("Labyrinthe crée dans fichier test.svg");
                     break;
                 case 5:
                     quit = true;
                     break;
             }
-        }
+        }*/
 
+    }
+
+    public static void petitTest() {
+        AldousBroder aldousBroder = new AldousBroder();
+        Kruskal kruskal = new Kruskal();
+
+        Labyrinthe.statsPourAlgo(aldousBroder,20,1000);
+        Labyrinthe.statsPourAlgo(kruskal,20,1000);
+        /*Labyrinthe l = new Labyrinthe(5, aldousBroder);
+        ArrayList<Integer>[] sommetsSuivant=l.calculSommetsSucesseurs();
+        for (int i=0;i<sommetsSuivant.length;i++) {
+            System.out.print("S"+i+" ");
+            for (int j=0;j<sommetsSuivant[i].size();j++) {
+                System.out.print("S"+sommetsSuivant[i].get(j)+" ");
+            }
+            System.out.println();
+        }
+        System.out.println("Distance : "+l.calculerDistance(4,0));*/
     }
 }

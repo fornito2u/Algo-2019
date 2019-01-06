@@ -3,6 +3,7 @@ package partie1;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Labyrinthe {
 
@@ -102,9 +103,49 @@ public class Labyrinthe {
         }
     }
 
+    //On retourne un tableau qui associe chaque entier à son sucesseur
+    public ArrayList<Integer>[] calculSommetsSucesseurs() {
+        ArrayList<Integer>[] sommetsSuivants= new ArrayList[this.graph.vertices()];
+
+        for (int i=0;i<this.graph.vertices();i++) {
+            sommetsSuivants[i]=new ArrayList<Integer>();
+        }
+
+        for (int i=0;i<this.arbreCouvrant.size();i++) {
+            int sommet1=this.arbreCouvrant.get(i).from;
+            int sommet2=this.arbreCouvrant.get(i).to;
+            sommetsSuivants[sommet1].add(sommet2);
+            sommetsSuivants[sommet2].add(sommet1);
+        }
+        return sommetsSuivants;
+    }
+
+    //Appel typique
+    //calculerDistance(taille-1,taille*(taille-1))
+    public int calculerDistance(int sommetDepart, int sommetArrive) {
+        int[] tableauDistance =new int[this.graph.vertices()];
+        for (int i=0;i<tableauDistance.length;i++) {
+            tableauDistance[i]=-1;
+        }
+        tableauDistance[sommetDepart]=0;
+        ArrayList<Integer>[] sommetsSuivants=this.calculSommetsSucesseurs();
+        prochainChemin(sommetDepart,sommetsSuivants,tableauDistance);
+        return tableauDistance[sommetArrive];
+    }
+
+    //Cette fonction récurive ne retourne rien, elle va modifier le contenu de tableauDistance
+    public void prochainChemin(int sommetDepart, ArrayList<Integer>[] sommetsSuivants, int[] tableauDistance) {
+        ArrayList<Integer> sommetsSucesseur=sommetsSuivants[sommetDepart];
+        for (Integer successeur : sommetsSucesseur) {
+            if (tableauDistance[successeur] == -1) {
+                tableauDistance[successeur]=tableauDistance[sommetDepart]+1;
+                prochainChemin(successeur,sommetsSuivants,tableauDistance);
+            }
+        }
+    }
+
     public int nbCulDeSac() {
         int[] nbArretePourSommet=new int[this.graph.vertices()];
-
         //On initilasise à 0
         for (int i=0;i<nbArretePourSommet.length;i++) {
             nbArretePourSommet[i]=0;
@@ -130,14 +171,21 @@ public class Labyrinthe {
         return nbCulDeSac;
     }
 
-    public static double nbMoyenCulSac(Algo algo, int repetion) {
+    public static void statsPourAlgo(Algo algo, int taille, int repetion) {
         double nbCulDeSacTotal=0;
+        int distanceTotale=0;
         for (int i=0;i<repetion;i++) {
-            Labyrinthe l=new Labyrinthe(5, algo);
+            Labyrinthe l=new Labyrinthe(taille, algo);
             nbCulDeSacTotal+=l.nbCulDeSac();
-            //l.writeFile("test"+i+".svg",30);
+            distanceTotale+=l.calculerDistance(taille-1,taille*(taille-1));
         }
-        return (nbCulDeSacTotal/repetion);
+
+        double nbMoyenCulSac=(nbCulDeSacTotal/repetion);
+        double nbMoyenDistance=(distanceTotale/repetion);
+        System.out.println("=== "+algo.getNom()+" ===");
+        System.out.println("Nombre moyen de culs de sac pour "+repetion+" répetitions : "+nbMoyenCulSac);
+        System.out.println("Distance moyenne à la sortie pour "+repetion+" répetitions : "+nbMoyenDistance);
+        System.out.println();
     }
 
     public void writeFile(String s, int tailleCase) {
