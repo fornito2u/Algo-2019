@@ -37,7 +37,7 @@ public class Main
             if(entier >= 1 && entier <= 7)
             {
                 b = true;
-                if(entier == 5)
+                if(entier == 7)
                 {
                     quit = true;
                 }
@@ -49,7 +49,7 @@ public class Main
                 if(entier >= 1 && entier<=7)
                 {
                     b = true;
-                    if(entier == 5)
+                    if(entier == 7)
                     {
                         quit = true;
                     }
